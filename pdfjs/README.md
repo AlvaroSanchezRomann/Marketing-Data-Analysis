@@ -1,2 +1,2 @@
-[📄 See Dashboard Marketing Data Analysis](pdfjs/pdfjs/Dashboard_Marketing_Data_Analysis.pdf)
+[📄 See Dashboard Marketing Data Analysis](/pdfjs/Dashboard_Marketing_Data_Analysis.pdf)
 
