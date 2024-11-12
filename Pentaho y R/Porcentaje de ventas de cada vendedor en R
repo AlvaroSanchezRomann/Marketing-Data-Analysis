@@ -1,6 +1,8 @@
-![ejercicio 1](Pentaho%20y%20R/ejercicio%201.PNG)
+# ![Gráfico del ejercicio 1](ruta/a/la/imagen.png)
+# Este es el gráfico de ventas agrupadas por mes.
+# Asegúrate de revisar el archivo README.md para ver la imagen completa.
 
-
+# Código R
 
 df <- read.csv2("D:/Descargas/Java ciclo formativo, pentaho, R/Pendrive Alvaro Sanchez Roman/tema 6/Ejercicios PENTAHO y R/Ejercicios PENTAHO y R/edicion4/ejercicio1/solucion/ejercicio 1 proyecto salida csvv.csv")
 
