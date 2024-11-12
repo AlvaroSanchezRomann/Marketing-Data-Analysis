@@ -8,6 +8,8 @@ En RStudio, transformé el CSV en un dataframe, agrupé las ventas por comercial
 
 Finalmente, creé un gráfico de barras para visualizar las ventas por vendedor y otro para mostrar las ventas mensuales de un comercial específico
 
+
+
 # Cargar el archivo CSV
 df <- read.csv("D:/Descargas/Pendrive roto/#Raíz/Pendrive Alvaro Sanchez Roman/tema 6/Ejercicios PENTAHO y R/Ejercicios PENTAHO y R/edicion4/ejercicio2/solucion/salida.csv")
 
