@@ -1,3 +1,6 @@
+![ejercicio 1](ruta/de/la/imagen)
+
+
 df <- read.csv2("D:/Descargas/Java ciclo formativo, pentaho, R/Pendrive Alvaro Sanchez Roman/tema 6/Ejercicios PENTAHO y R/Ejercicios PENTAHO y R/edicion4/ejercicio1/solucion/ejercicio 1 proyecto salida csvv.csv")
 
 agrupado <- aggregate(importe ~ mes, data = df, FUN = sum)
