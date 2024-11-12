@@ -1,0 +1,76 @@
+# Resumen del ejercicio 3. Proyecto completo de ETL, análisis y visualización de datos
+
+1. Extracción de datos de comerciales, ventas y clientes en Pentaho desde la base "ejer3", uniendo tablas por "customerID" y generando un CSV con campos renombrados.
+
+2. En RStudio, transformé el archivo en un dataframe
+
+3. Gráfico circular del porcentaje de ventas de cada vendedor ordenados de mayor a menor.
+
+################################################################################################################################
+
+df <- read.csv2 ("D:/Descargas/Java ciclo formativo, pentaho, R/Pendrive Alvaro Sanchez Roman/tema 6/Ejercicios PENTAHO y R/Ejercicios PENTAHO y R/edicion4/ejercicio3/eje3alva.csv")
+
+agrupado1 <- aggregate (importe ~ mes, data = df, FUN = sum)
+
+barplot(agrupado1$importe,
+        col = rainbow(length(agrupado1$mes)),
+        names.arg = agrupado1$mes,
+        xlab ="Meses",
+        ylab = "Ventas",
+        main = "Ventas por mes")
+
+
+agrupado2  <- aggregate (importe ~ NombreEmpleado, data = df, FUN = sum)
+
+
+barplot(agrupado2$importe,
+        col = rainbow(length(agrupado2$NombreEmpleado)),
+        names.arg = agrupado2$NombreEmpleado,
+        xlab ="NombreEmpleado",
+        ylab = "Ventas",
+        main = "Ventas por empleado")
+
+# LO DE ABAJO ES LO BUENO
+
+# venta de cada empleado/ventas totales * 100
+
+df <- read.csv2 ("D:/Descargas/Java ciclo formativo, pentaho, R/Pendrive Alvaro Sanchez Roman/tema 6/Ejercicios PENTAHO y R/Ejercicios PENTAHO y R/edicion4/ejercicio3/eje3alva.csv")
+
+agrupado2  <- aggregate (importe ~ NombreEmpleado, data = df, FUN = sum)
+
+# Calcular el porcentaje de ventas de cada empleado
+porcentajedecadaempleado <- (agrupado2$importe / sum(agrupado2$importe)) * 100
+
+# Crear el gráfico de pastel
+pie(
+  x = agrupado2$importe,                      # Datos para cada porción
+  labels = paste0(agrupado2$NombreEmpleado, ": ", round(porcentajedecadaempleado, 1), "%"), # Etiquetas con nombres y porcentajes
+  col = rainbow(length(agrupado2$NombreEmpleado)),  # Colores para cada sección
+  main = "Distribución de Ventas por Empleado",    # Título del gráfico
+  init.angle = 90                                 # Inicia desde los 90 grados
+)
+
+# Agregar leyenda
+legend(
+  "topright",                                      # Posición de la leyenda
+  legend = agrupado2$NombreEmpleado,               # Nombres de los empleados
+  fill = rainbow(length(agrupado2$NombreEmpleado)) # Colores correspondientes
+)
+
+
+################################################################################
+
+
+
+
+
+por <- agrupado2$importe/sum(ventasxempl$importe)*100
+
+agrupado3 <- aggregate(importe ~ Nombre.empresa, data = df, FUN = sum)
+
+barplot(agrupado3$importe,
+        col = rainbow(length(agrupado3$Nombre.empresa)),
+        names.arg = agrupado3$Nombre.empresa,
+        xlab ="Nombre.empresa",
+        ylab = "Ventas",
+        main = "Ventas por empresa")
