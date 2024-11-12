@@ -1,0 +1,42 @@
+# Cargar el archivo CSV
+df <- read.csv2("D:/Descargas/Java ciclo formativo, pentaho, R/Pendrive Alvaro Sanchez Roman/tema 6/Ejercicios PENTAHO y R/Ejercicios PENTAHO y R/edicion4/Ejercicio1b/solucion/salida.csv")
+
+# 1. ¿Cuántos países distintos hay?
+paises <- length(unique(df$Pais))
+
+# 2. ¿Cuántos idiomas diferentes hay?
+idiomas_diferentes <- length(unique(df$Idioma))
+
+# 3. ¿Cuántas personas hablan cada idioma?
+poblacion_por_idioma <- aggregate(df$Poblacion, by = list(Idioma = df$Idioma), FUN = sum)
+colnames(poblacion_por_idioma) <- c("Idioma", "PoblacionTotal")
+
+# 4. ¿Cuál es la población total de cada continente?
+poblacion_por_continente <- aggregate(df$Poblacion, by = list(Continente = df$Continente), FUN = sum)
+colnames(poblacion_por_continente) <- c("Continente", "PoblacionTotal")
+
+# 5. Gráfico de tarta con porcentajes y colores rainbow
+total_poblacion <- sum(poblacion_por_continente$PoblacionTotal)
+porcentajes <- round((poblacion_por_continente$PoblacionTotal / total_poblacion) * 100, 1)
+etiquetas <- paste(poblacion_por_continente$Continente, " - ", porcentajes, "%", sep = "")
+
+pie(poblacion_por_continente$PoblacionTotal, labels = etiquetas, col = rainbow(length(poblacion_por_continente$Continente)),
+    main = "Distribución de Población por Continente")
+
+# 6. Gráfico de barras para personas que hablan cada idioma en África, con leyenda
+poblacion_africa <- subset(df, Continente == "Africa")
+poblacion_africa_por_idioma <- aggregate(poblacion_africa$Poblacion, by = list(Idioma = poblacion_africa$Idioma), FUN = sum)
+colnames(poblacion_africa_por_idioma) <- c("Idioma", "PoblacionTotal")
+
+# Colores rainbow para los idiomas en África
+colores <- rainbow(length(poblacion_africa_por_idioma$Idioma))
+
+# Crear el gráfico de barras
+barplot(poblacion_africa_por_idioma$PoblacionTotal, names.arg = poblacion_africa_por_idioma$Idioma,
+        main = "Población que habla cada idioma en África", xlab = "Idiomas", ylab = "Población", las = 2,
+        col = colores)
+
+# Añadir leyenda
+legend("topright", legend = poblacion_africa_por_idioma$Idioma, fill = colores, cex = 0.8, title = "Idiomas en África")
+
+
