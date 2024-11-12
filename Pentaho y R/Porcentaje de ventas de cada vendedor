@@ -1,0 +1,15 @@
+# Cargar el archivo CSV
+df <- read.csv("D:/Descargas/Pendrive roto/#Raíz/Pendrive Alvaro Sanchez Roman/tema 6/Ejercicios PENTAHO y R/Ejercicios PENTAHO y R/edicion4/ejercicio2/solucion/salida.csv")
+
+# Sumar las ventas por vendedor
+ventasporvendedor <- aggregate(importe ~ nombre, data = df, FUN = sum)                  
+
+# Crear el gráfico de barras
+barplot(ventasporvendedor$importe, 
+        names.arg = ventasporvendedor$nombre, 
+        beside = TRUE, 
+        col = rainbow(length(ventasporvendedor$nombre)), 
+        xlab = "Vendedor", 
+        ylab = "Total de Ventas", 
+        main = "Ventas Totales por Vendedor")
+
