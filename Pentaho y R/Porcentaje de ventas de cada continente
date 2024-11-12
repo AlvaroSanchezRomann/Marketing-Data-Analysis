@@ -1,3 +1,15 @@
+# Resumen del ejercicio
+
+Proyecto completo de ETL
+
+Extracción de datos de países, idiomas y ciudades en Pentaho, combinando tablas por código de país
+
+Generé un CSV con columnas como País, Idioma, Población y Continente
+
+En RStudio, transformé el archivo en un dataframe y calculé la cantidad de países e idiomas distintos y la población total por continente
+
+inalmente, creé un gráfico de tarta para mostrar la distribución de la población por continente y un gráfico de barras para visualizar los idiomas hablados en África
+
 # Cargar el archivo CSV
 df <- read.csv2("D:/Descargas/Java ciclo formativo, pentaho, R/Pendrive Alvaro Sanchez Roman/tema 6/Ejercicios PENTAHO y R/Ejercicios PENTAHO y R/edicion4/Ejercicio1b/solucion/salida.csv")
 
