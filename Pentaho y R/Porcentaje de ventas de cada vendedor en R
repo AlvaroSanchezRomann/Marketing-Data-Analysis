@@ -1,4 +1,5 @@
-![ejercicio 1](Pentaho y R/ejercicio 1.PNG)
+![ejercicio 1](Pentaho%20y%20R/ejercicio%201.PNG)
+
 
 
 df <- read.csv2("D:/Descargas/Java ciclo formativo, pentaho, R/Pendrive Alvaro Sanchez Roman/tema 6/Ejercicios PENTAHO y R/Ejercicios PENTAHO y R/edicion4/ejercicio1/solucion/ejercicio 1 proyecto salida csvv.csv")
