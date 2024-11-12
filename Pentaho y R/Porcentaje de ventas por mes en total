@@ -4,16 +4,15 @@
 
 # Resumen del ejercicio 1
 
-Proyecto completo de ETL, análisis y visualización de datos.
+1. Proyecto completo de ETL, análisis y visualización de datos.
 
-Extracción de datos de ventas en Pentaho desde la base 'ejercicio1', filtrando por regiones A y B y comerciales con ID < 3. Generé un CSV con las columnas Región, Mes y Ventas.
+2. Extracción de datos de ventas en Pentaho desde la base 'ejercicio1', filtrando por regiones A y B y comerciales con ID < 3. Generé un CSV con las columnas Región, Mes y Ventas.
 
-Luego, en RStudio, transformé el archivo en un dataframe, calculé el total y el porcentaje de ventas por mes.
+3. Luego, en RStudio, transformé el archivo en un dataframe, calculé el total y el porcentaje de ventas por mes.
 
-Finalmente, creé un gráfico de quesitos con etiquetas de porcentaje y leyenda personalizada para visualizar la distribución de ventas mensual....
+4. Finalmente, creé un gráfico de quesitos con etiquetas de porcentaje y leyenda personalizada para visualizar la distribución de ventas mensual....
 
-
-
+################################################################################################################################################################
 
 # Código R
 
