@@ -1,0 +1,101 @@
+df <- read.csv2("D:/Descargas/Java ciclo formativo, pentaho, R/Pendrive Alvaro Sanchez Roman/tema 6/Ejercicios PENTAHO y R/Ejercicios PENTAHO y R/edicion4/ejercicio1/solucion/ejercicio 1 proyecto salida csvv.csv")
+
+agrupado <- aggregate(importe ~ mes, data = df, FUN = sum)
+
+
+# Crear gráfico de tarta
+pie(agrupado$importe, radius = 1,
+    labels = agrupado$importe, 
+    main = "Ventas Agrupadas por Mes", col = c("purple","red"), cex.main = 1)
+
+
+###############################################################################
+
+#calculo el porcentaje que representa cada entrada ESTA HECHO EN LA SOLUCION PDF 
+porcent <- round((agrupado$importe/sum(agrupado$importe))*100,2)
+
+#visualización
+
+pie(agrupado$importe,
+    labels = paste0(porcent, "%"),
+    col=rainbow(length(agrupado$importe)))
+                 
+     
+
+#porcent <- round (agrupado$importe/sum(agrupado))
+
+#pinto las ventas
+# Obtener las coordenadas para la posición de la leyenda
+x_pos <- 0.5 # Cambia este valor según tus necesidades
+y_pos <- 1 # Colocar la leyenda en la parte superior del gráfico
+pie(total_ventas$Ventas,labels=paste(round(porcent,2),"%"), col = rainbow(2))
+# Agregar la leyenda en una posición personalizada
+legend(x = x_pos, y = y_pos, legend = total_ventas$Mes,
+       fill = c("red", "lightblue"))
+
+# paste0 es para el porcentaje 
+
+
+# Leer el archivo CSV
+df <- read.csv("C:/Users/integ/Desktop/Pendrive Alvaro Sanchez Roman/tema 6/Ejercicios PENTAHO y R/Ejercicios PENTAHO y R/edicion4/ejercicio1/solucion/ejercicio 1 proyecto salida csv.csv")
+
+# Agrupar por mes y sumar el importe
+agrupado <- aggregate(importe ~ mes, data = df, FUN = sum)
+
+# Calcular el total de ventas
+total_ventas <- sum(agrupado$importe)
+
+# Calcular los porcentajes de cada mes
+porcentajes <- round((agrupado$importe / total_ventas) * 100, 1)
+
+# Crear etiquetas que incluyan el importe y el porcentaje
+etiquetas <- paste(agrupado$mes, "\n", agrupado$importe, "(", porcentajes, "%)")
+
+# Crear gráfico de tarta con porcentajes
+pie(agrupado$importe, 
+    radius = 1, 
+    labels = etiquetas,  # Mostrar etiquetas con porcentaje y valor
+    main = "Ventas Agrupadas por Mes", 
+    col = c("purple", "red"), 
+    cex.main = 1)
+
+
+#Solucion profesor grafica
+
+#porcent <- round (ventasxmes$importe/sum(ventas))
+
+# pie(ventasxmes$importe, labels = paste()(porcent, "%"), 
+#col = rainbow(length(ventasxmes$importe))
+
+#legend("bottomleft", legend = ventasxmes$mes, fill = rainbow(length(ventasxmes$importe)) )
+
+# paste es para el porcentaje 
+
+# Leer el archivo CSV
+df <- read.csv2("D:/Descargas/Java ciclo formativo, pentaho, R/Pendrive Alvaro Sanchez Roman/tema 6/Ejercicios PENTAHO y R/Ejercicios PENTAHO y R/edicion4/ejercicio1/solucion/ejercicio 1 proyecto salida csvv.csv")
+
+# Agrupar por mes y sumar el importe
+agrupado <- aggregate(importe ~ mes, data = df, FUN = sum)
+
+# Calcular el total de ventas
+total_ventas <- sum(agrupado$importe)
+
+# Calcular los porcentajes de cada mes
+porcentajes <- round((agrupado$importe / total_ventas) * 100, 1)
+
+# Crear etiquetas que incluyan el importe y el porcentaje
+etiquetas <- paste(agrupado$mes, "\n", agrupado$importe, "(", porcentajes, "%)")
+
+# Crear gráfico de tarta con porcentajes
+pie(agrupado$importe, 
+    radius = 1, 
+    labels = etiquetas,  # Mostrar etiquetas con porcentaje y valor
+    main = "Ventas Agrupadas por Mes", 
+    col = rainbow(length(agrupado$importe)),  # Colores variados
+    cex.main = 1)
+
+# Agregar leyenda en una posición personalizada
+legend("topright",              # Puedes cambiar "topright" a "bottomleft" u otras posiciones
+       legend = agrupado$mes,    # Nombres de los meses como leyenda
+       fill = rainbow(length(agrupado$importe)),  # Colores deben coincidir con el gráfico
+       title = "Meses")
